@@ -250,7 +250,87 @@
     width: 50px;
 }
 
+.video-section {
+    padding: 80px 5%; /* Espaçamento padrão para a seção */
+    text-align: center;
+    background-color: #f7f7f7; /* Fundo leve para destacar */
+}
+
+.section-title {
+    font-size: 2.2em;
+    font-weight: 500;
+    color: #273826;
+    margin-bottom: 50px;
+}
+
+/* Grid Principal (Desktop) */
+.video-grid {
+    display: grid;
+    /* 4 colunas de tamanho igual com espaçamento de 30px */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 30px;
+    max-width: 1200px; /* Limita a largura da grade */
+    margin: 0 auto;
+}
+
+.video-card {
+    background-color: #ccc; /* Cor de fundo cinza, como no placeholder */
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s;
+}
+
+.video-card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.video-link {
+    display: block;
+    text-decoration: none;
+    height: 100%; /* Garante que o link ocupe todo o card */
+}
+
+/* Placeholder (Onde a Thumb do Vídeo ou o Player ficará) */
+.video-placeholder {
+    position: relative;
+    /* Usamos Padding-bottom para manter a proporção 9:16 (vertical, como no design) */
+    padding-top: 177.77%; /* (16 / 9) * 100% para manter a proporção de vídeo vertical */
+    background-color: #c4c4c4; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Ícone de Play (para replicar o triângulo do design) */
+.play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    /* Cria um triângulo usando bordas */
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 30px solid rgba(255, 255, 255, 0.8); /* Triângulo branco semi-transparente */
+    cursor: pointer;
+    transition: border-left-color 0.2s;
+}
+
+.video-link:hover .play-icon {
+    border-left: 30px solid white; /* Fica totalmente branco no hover */
+}
+
 /* --- Mobile --- */
+
+@media (max-width: 1024px) {
+    /* Em tablets, mostra 2 colunas */
+    .video-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
 
 @media (max-width: 992px) {
     .hero-title {
@@ -341,5 +421,17 @@
     }
     .indicator.active {
         width: 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    /* Em celulares, mostra 1 coluna */
+    .video-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .video-section {
+        padding: 50px 5%;
     }
 }
