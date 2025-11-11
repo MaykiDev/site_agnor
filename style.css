@@ -733,6 +733,100 @@
     color: #273826; 
 }
 
+/* --- SEÇÃO: QUER VENDER SEU IMÓVEL (NOVO) --- */
+/* ---------------------------------------------------------------------- */
+
+.vender-imovel-section {
+    /* Cor de fundo escura da imagem de referência */
+    background-color: #384238; 
+    padding: 80px 5%;
+    color: white;
+}
+
+.vender-imovel-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 50px;
+}
+
+.vender-imovel-texto {
+    flex: 1;
+    max-width: 550px;
+    text-align: left;
+}
+
+.section-title-vender {
+    font-size: 2.2em;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 40px;
+}
+
+.vender-imovel-texto p {
+    font-size: 1.1em;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+
+.vender-imovel-imagem {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Garante que a imagem não seja maior que a caixa */
+    max-width: 50%; 
+}
+
+.imagem-vender {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    /* Sombra sutil para dar profundidade */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3); 
+}
+
+/* Estilo do Botão "Fale Conosco" */
+.btn-fale-conosco {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 30px;
+    /* Cor de fundo branca/cinza clara da imagem de referência */
+    background-color: #e6e6e6; 
+    color: #333; /* Texto escuro */
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 8px; 
+    transition: background-color 0.3s;
+    margin-top: 30px;
+    font-size: 1.2em;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.btn-fale-conosco:hover {
+    background-color: #cccccc; 
+}
+
+.whatsapp-icon-dark {
+    width: 24px;
+    height: 24px;
+    /* Ícone do WhatsApp escuro/verde na imagem de referência */
+    filter: none; 
+}
+
+/* Linha de separação no final da seção */
+.section-separator-line {
+    border: none;
+    height: 1px;
+    background-color: #535e53; /* Cor um pouco mais clara que o fundo */
+    max-width: 1200px;
+    margin: 80px auto 0 auto;
+}
+
 /* --- Mobile --- */
 
 @media (max-width: 1024px) {
@@ -827,6 +921,31 @@
     .propriedades-rurais-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 25px;
+    }
+
+    .vender-imovel-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+    
+    .vender-imovel-texto {
+        max-width: 100%;
+        text-align: center;
+        order: 1; /* Move o texto para baixo no mobile/tablet */
+    }
+    
+    .vender-imovel-imagem {
+        max-width: 80%;
+        order: 0; /* Move a imagem para cima */
+    }
+    
+    .section-title-vender {
+        margin-bottom: 20px;
+    }
+    
+    .vender-imovel-texto p {
+        text-align: center;
     }
 }
 
@@ -986,5 +1105,17 @@
     .propriedades-rurais-grid {
         grid-template-columns: 1fr;
         gap: 20px;
+    }
+
+    .vender-imovel-section {
+        padding: 50px 5%;
+    }
+    
+    .vender-imovel-texto p {
+        font-size: 1em;
+    }
+    
+    .section-separator-line {
+        margin: 50px auto 0 auto;
     }
 }
