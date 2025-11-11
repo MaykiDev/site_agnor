@@ -65,7 +65,7 @@
     min-height: calc(100vh - 80px); 
     display: flex;
     align-items: center;
-    padding: 0 5%;
+    padding: 0 10%;
     color: white;
     background: url('utilfile/mansao1.png') no-repeat center center / cover;
     overflow: hidden;
@@ -481,7 +481,7 @@
     font-size: 0.9em;
     color: #555;
     margin-bottom: 15px;
-    min-height: 20px; /* Garante que a linha exista mesmo com poucos dados */
+    min-height: 20px;
 }
 
 .comercial-valor {
@@ -493,7 +493,7 @@
 /* --- SEÇÃO: SOBRE NÓS --- */
 
 .sobre-nos-section {
-    background-color: #273826; /* Fundo verde-escuro */
+    background-color: #273826;
     color: white;
     padding: 80px 5%;
 }
@@ -501,7 +501,7 @@
 .sobre-nos-container {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start; /* Alinha o texto no topo */
+    align-items: flex-start;
     max-width: 1200px;
     margin: 0 auto;
     gap: 50px;
@@ -541,6 +541,112 @@
     filter: brightness(0) invert(1) opacity(0.8);
     width: 500px; 
     margin: 0 auto 10px auto;
+}
+
+/* --- SEÇÃO: AVALIAÇÃO MERCADOLÓGICA (NOVO) --- */
+
+.avaliacao-section {
+    padding: 80px 5%;
+    background-color: white; /* Fundo claro */
+    color: #333;
+    text-align: center;
+}
+
+.avaliacao-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 50px;
+}
+
+.avaliacao-texto {
+    flex: 1;
+    max-width: 550px;
+    text-align: left;
+}
+
+.avaliacao-title {
+    font-size: 2.5em; /* Ligeiramente maior */
+    font-weight: 500;
+    color: #273826;
+    text-align: center; 
+    width: 100%;
+    margin-bottom: 50px; /* Mais espaço abaixo do título principal */
+}
+
+.avaliacao-subtitle {
+    font-size: 1.6em;
+    font-weight: 700; /* Mais pesado para destaque */
+    color: #273826;
+    margin-bottom: 25px;
+}
+
+.avaliacao-texto p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 18px;
+    color: #555;
+}
+
+/* Estilo de destaque para as linhas de informação */
+.avaliacao-quem-faz,
+.avaliacao-vantagens,
+.avaliacao-entrega {
+    text-align: left; /* Garante alinhamento do texto informativo */
+}
+
+.avaliacao-quem-faz strong,
+.avaliacao-vantagens strong,
+.avaliacao-entrega strong {
+    color: #333; /* Cor escura para os títulos em negrito */
+    font-weight: 700;
+}
+
+/* Estilo para o botão "Solicitar Avaliação" */
+.btn-solicitar-avaliacao {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 30px;
+    /* Cor verde da imagem de referência */
+    background-color: #3DC56E; 
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 8px; 
+    transition: background-color 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    margin-top: 30px;
+    font-size: 1.2em;
+}
+
+.btn-solicitar-avaliacao:hover {
+    background-color: #2CA75A; /* Verde mais escuro no hover */
+}
+
+/* Ajuste do ícone do WhatsApp para o botão (o seu CSS anterior já tinha o .whatsapp-icon, vamos reaproveitar) */
+.btn-solicitar-avaliacao .whatsapp-icon {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1); 
+}
+
+.avaliacao-imagem {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Ajusta a imagem para caber na caixa */
+    max-width: 50%;
+}
+
+.imagem-avaliacao {
+    max-width: 100%;
+    height: auto;
+    /* Ajusta a imagem para flutuar um pouco mais */
+    transform: rotateZ(2deg); 
 }
 
 /* --- Mobile --- */
@@ -589,17 +695,49 @@
     }
 
     .sobre-nos-logo {
-        /* Move a logo para o topo e centraliza no mobile */
         order: -1; 
         margin-bottom: 30px;
     }
 
     .sobre-nos-logo img {
-        max-width: 150px; /* Diminui a logo no mobile */
+        max-width: 150px;
     }
     
     .logo-text-argon, .logo-text-imobiliaria {
-        display: none; /* Remove o texto ARGON | IMOBILIARIA no mobile */
+        display: none;
+    }
+
+    .avaliacao-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .avaliacao-texto {
+        max-width: 100%;
+        text-align: center;
+        order: 1; /* Move o texto para baixo no mobile/tablet */
+    }
+    
+    .avaliacao-imagem {
+        max-width: 80%;
+        order: 0; /* Move a imagem para cima */
+    }
+
+    .avaliacao-title {
+        margin-bottom: 20px;
+    }
+    
+    .avaliacao-quem-faz,
+    .avaliacao-vantagens,
+    .avaliacao-entrega {
+        text-align: center;
+    }
+    
+    /* Centraliza o botão no modo coluna */
+    .avaliacao-texto .btn-solicitar-avaliacao {
+        display: block;
+        width: fit-content;
+        margin: 30px auto 0 auto;
     }
 }
 
@@ -706,7 +844,6 @@
 }
 
 @media (max-width: 600px) {
-    /* Em celulares, mostra 1 coluna */
     .video-grid {
         grid-template-columns: 1fr;
         gap: 20px;
@@ -731,5 +868,25 @@
     }
     .section-title-sobre-nos {
         margin-bottom: 20px;
+    }
+
+    .avaliacao-section {
+        padding: 50px 5%;
+    }
+    
+    .avaliacao-title {
+        font-size: 2em;
+    }
+    
+    .avaliacao-subtitle {
+        font-size: 1.4em;
+    }
+    
+    .avaliacao-imagem {
+        max-width: 100%;
+    }
+    
+    .imagem-avaliacao {
+        transform: none; /* Remove a rotação em telas pequenas */
     }
 }
